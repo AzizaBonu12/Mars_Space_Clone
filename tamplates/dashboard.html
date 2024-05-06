@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flowers_s</title>
+    <link rel="stylesheet" href="{% static 'admin/css/my.css' %}">
+    <a href="{% url 'register' %}"><button>Register</button></a>
+    <a href="{% url 'login' %}"><button>Login</button></a>
+    <a href="{% url 'admin' %}"><button>Admin</button></a>
+</head>
+
+<body>
+    <h2>flowers_s dokoniga xush kelibsiz</h2>
+
+    <h3>All Product</h3>
+    <main class="Product">
+        <div class="Product" id="Product">
+            {% for product in  products %}
+            <div class="productscard">
+                <img src="{{ product.rasm.url}}">
+                <div class='product_about'>
+                    <h1>Name: {{ product.nomi }}</h1>
+                    <h3> Categoriyasi: {{ product.categoriyasi}}</h3>
+                    <p>malumot: {{ product.malumot }}</p>
+                    <h1>narxi: {{ product.narxi }}</h1>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+
+</html>
